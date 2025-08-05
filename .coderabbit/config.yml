@@ -1,0 +1,17 @@
+llm:
+  provider: openai
+  model: gpt-4o
+  temperature: 0.3
+
+review:
+  max_comments: 20
+  prompt: >
+    你是一位经验丰富的开发者，请帮我进行代码审查，指出潜在的问题或优化点。
+  approve_threshold: 8
+  language: zh-CN  # 可以选择中文或英文
+
+rules:
+  - name: 不使用 console.log
+    description: 禁止在生产代码中使用 console.log
+    regex: 'console\.log\('
+    severity: warning
